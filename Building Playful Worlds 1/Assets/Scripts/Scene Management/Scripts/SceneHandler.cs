@@ -52,15 +52,29 @@ public class SceneHandler : SingletonTemplateMono<SceneHandler>
 		LoadScene(GetSceneIndexByBuildName(sceneIndex));
 	}
 
+	[ContextMenu("Reload Current Scene")]
 	public void ReloadCurrentScene()
 	{
 		LoadScene(SceneManager.GetActiveScene().name);
 	}
 
+	[ContextMenu("Load Next Scene")]
 	public void LoadNextScene()
 	{
 		int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 		LoadScene(nextSceneIndex);
+	}
+
+	[ContextMenu("Load First Scene")]
+	public void LoadFirstScene()
+	{
+		LoadScene(0);
+	}
+
+	[ContextMenu("Load Last Scene")]
+	public void LoadLastScene()
+	{
+		LoadScene(SceneManager.sceneCountInBuildSettings - 1);
 	}
 
 	public bool NextSceneIsPresent()

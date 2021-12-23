@@ -24,6 +24,7 @@ public class Raycaster : MonoBehaviour
 	[Header("Raycast Properties")]
 	public float rayRange;
 	public Transform rayOrigin;
+	public LayerMask rayMask;
 
 	[Header("Target Requirements")]
 	public TargetRequirement targetRequirement;
@@ -123,14 +124,18 @@ public class Raycaster : MonoBehaviour
 	protected T PerformRaycast<T>(out RaycastHit rayHit)
 	{
 		Debug.DrawRay(rayOrigin.position, rayOrigin.forward * rayRange, Color.red);
-		if (Physics.Raycast(rayOrigin.position, rayOrigin.forward, out RaycastHit hit, rayRange))
+		print("0");
+		if (Physics.Raycast(rayOrigin.position, rayOrigin.forward, out RaycastHit hit, rayRange, rayMask))
 		{
+			print(hit.transform.gameObject.name);
 			if (ConditionCheck(hit.transform.gameObject))
 			{
+				print("2");
 				T target = hit.transform.GetComponent<T>();
 
 				if (target != null)
 				{
+					print("3");
 					rayHit = hit;
 					return target;
 				}

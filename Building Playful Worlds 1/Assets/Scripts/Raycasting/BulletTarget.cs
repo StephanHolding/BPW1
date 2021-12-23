@@ -17,6 +17,7 @@ public class BulletTarget : RaycastTarget
 	public override void Hit(RaycastHit hit)
 	{
 		base.Hit(hit);
+		print("a;oidnfo;disnfa;osdnfoiandfg;alkinfg;oiasfbng");
 		citizen.Die();
 		EffectsManager.instance.PlayParticle("Bullet Impact Big", hit.point, Quaternion.LookRotation(hit.normal));
 		rb.AddForce(-hit.normal * 2, ForceMode.VelocityChange);

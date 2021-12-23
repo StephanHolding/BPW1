@@ -68,4 +68,8 @@ Veterinarian;
 Videographer;
 Waiter;
 Waitress;
-Writer
+Writer;
+Game Developer;
+Prostitute;
+Unemployed;
+Rockstar

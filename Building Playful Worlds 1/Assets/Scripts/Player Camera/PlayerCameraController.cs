@@ -32,6 +32,8 @@ public class PlayerCameraController : MonoBehaviour
 	{
 		if (!GameManager.GameIsActive) return;
 
+		print(Cursor.visible);
+
 		MoveCamera();
 		Zoom();
 	}
